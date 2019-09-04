@@ -1,0 +1,26 @@
+import csv
+
+file= #PUT FILE PATH HERE. File should be formatted such that each survey response item has one row with each column containing the results of a single respondent.
+
+with open(file) as csv_file:
+    read=csv.reader(csv_file, delimiter=",")
+    for row in read:
+        defcount=0
+        total=0
+        for item in row:      #This program is specifically designed for a survey in which five items are being ranked. Code can be tweaked if there are a different number of items
+            if item=="1":
+                defcount+=5
+                total+=1
+            if item=="2":
+                defcount+=4
+                total+=1
+            if item =="3":
+                defcount+=3
+                total+=1
+            if item=="4":
+                defcount+=2
+                total+=1
+            if item=="5":
+                defcount+=1
+                total+=1
+        print(str(defcount/total))
